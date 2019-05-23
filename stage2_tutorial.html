@@ -1,0 +1,150 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=1280">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/swiper.min.css">
+
+        <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
+    </head>
+    <body id="stage2">
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+        <div id="header">
+            <span class="menu dropmenu">ステージ2
+                <ul>
+                    <li><a href="index.html">スタート！</a></li>
+                    <li>ステージ1
+                        <ul>
+                            <li><a href="stage1_tutorial.html">説明するよ！</a></li>
+                            <li><a href="stage1.html">やってみよう！</a></li>
+                        </ul>
+                    </li>
+                    <li>ステージ2
+                        <ul>
+                            <li><a href="stage2_tutorial.html">説明するよ！1</a></li>
+                            <li><a href="stage2_tutorial2.html">説明するよ！2</a></li>
+                            <li><a href="stage2.html">やってみよう！</a></li>
+                        </ul>
+                    </li>
+                    <li>ステージ3
+                        <ul>
+                            <li><a href="stage3_tutorial.html">説明するよ！1</a></li>
+                            <li><a href="stage3_tutorial2.html">説明するよ！2</a></li>
+                            <li><a href="stage3.html">やってみよう！</a></li>
+                        </ul>
+                    </li>
+                    <li>ステージ4
+                        <ul>
+                            <li><a href="stage4_tutorial.html">説明するよ！1</a></li>
+                            <li><a href="stage4_tutorial2.html">説明するよ！2</a></li>
+                            <li><a href="stage4_tutorial3.html">説明するよ！3</a></li>
+                            <li><a href="stage4_tutorial4.html">説明するよ！4</a></li>
+                            <li><a href="stage4.html">やってみよう！</a></li>
+                        </ul>
+                    </li>
+                    <li>ステージ5
+                        <ul>
+                            <li><a href="stage5_tutorial.html">説明するよ！</a></li>
+                            <li><a href="stage5.html">やってみよう！</a></li>
+                            <li><a href="stage5_tutorial0.html">作品例</a></li>
+                        </ul>
+                    </li>
+                    <li>ステージ6
+                        <ul>
+                            <li><a href="stage6_tutorial.html">説明するよ！</a></li>
+                            <li><a href="stage6.html">やってみよう！</a></li>
+                            <li><a href="stage6_tutorial0.html">作品例</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </span>
+            <span class="title">説明するよ！1</span>
+        </div>
+
+        <div id="screen-arrow">
+            <a href="stage1.html" class="arrow-left"><img src="images/btn_screen_left.svg" alt=""></a>
+            <a href="stage2_tutorial2.html" class="arrow-right hidden"><img src="images/btn_screen_right.svg" alt=""></a>
+        </div>
+
+        <!--<div id="content">-->
+            <!--<p class="prompt">LEDを光らせよう！</p>-->
+        <!--</div>-->
+        <div id="tutorial" class="visuallyhidden">
+            <span class="title">光らせたLEDを消そう！</span>
+            <div class="description">
+                <p>
+                    <img src="images/examples/icon_space.svg">に<img src="images/examples/icon_on.svg">を置くと、LEDが光りました。<br>
+                    次に<img src="images/examples/icon_on.svg">の後に<img src="images/examples/icon_off.svg">を置いてから、<img src="images/examples/icon_play.svg">をおし、<br>
+                    光らせたLEDを消しましょう…、<br>あれ？光りません！
+                </p>
+            </div>
+            <span class="description-test">
+                <img class="img-playground light-off" src="images/img_tutorial_light_off.svg">
+                <img class="img-playground light-on" src="images/img_tutorial_light_on.svg">
+            </span>
+
+            <div class="workspace">
+                <div id="blockly-workspace"></div>
+                <div class="button-arrow">
+                    <button id="button-arrow-left">
+                        <img src="images/btn_arrow_left.svg">
+                    </button>
+                    <button id="button-arrow-right">
+                        <img src="images/btn_arrow_right.svg">
+                    </button>
+                </div>
+                <div class="button-play">
+                    <img src="images/button_play.svg">
+                </div>
+            </div>
+        </div>
+
+        <xml id="toolbox" style="display: none;">
+            <block type="turn_on"></block>
+            <block type="turn_off"></block>
+            <!--<block type="wait">-->
+                <!--<field name="SECOND">1</field>-->
+            <!--</block>-->
+            <!--<block type="loop">-->
+                <!--<field name="COUNT">4</field>-->
+            <!--</block>-->
+        </xml>
+        <xml id="workspaceBlocks" style="display: none">
+        </xml>
+
+        <!-- Add your site or application content here -->
+        <script src="acorn_interpreter.js"></script>
+        <script src="google-blockly-for-tutorial/blockly_compressed_horizontal.js"></script>
+        <script src="google-blockly-for-tutorial/blocks_compressed_horizontal.js"></script>
+        <script src="google-blockly-for-tutorial/javascript_compressed.js"></script>
+        <script src="google-blockly-for-tutorial/msg/js/ja.js"></script>
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="js/swiper.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script>disabledField = true;</script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    </body>
+</html>

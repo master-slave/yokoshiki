@@ -1,0 +1,176 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=1280">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/swiper.min.css">
+
+        <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
+    </head>
+    <body id="stage6">
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+        <div id="header">
+            <span class="menu dropmenu">ステージ6
+                <ul>
+                    <li><a href="index.html">スタート！</a></li>
+                    <li>ステージ1
+                        <ul>
+                            <li><a href="stage1_tutorial.html">説明するよ！</a></li>
+                            <li><a href="stage1.html">やってみよう！</a></li>
+                        </ul>
+                    </li>
+                    <li>ステージ2
+                        <ul>
+                            <li><a href="stage2_tutorial.html">説明するよ！1</a></li>
+                            <li><a href="stage2_tutorial2.html">説明するよ！2</a></li>
+                            <li><a href="stage2.html">やってみよう！</a></li>
+                        </ul>
+                    </li>
+                    <li>ステージ3
+                        <ul>
+                            <li><a href="stage3_tutorial.html">説明するよ！1</a></li>
+                            <li><a href="stage3_tutorial2.html">説明するよ！2</a></li>
+                            <li><a href="stage3.html">やってみよう！</a></li>
+                        </ul>
+                    </li>
+                    <li>ステージ4
+                        <ul>
+                            <li><a href="stage4_tutorial.html">説明するよ！1</a></li>
+                            <li><a href="stage4_tutorial2.html">説明するよ！2</a></li>
+                            <li><a href="stage4_tutorial3.html">説明するよ！3</a></li>
+                            <li><a href="stage4_tutorial4.html">説明するよ！4</a></li>
+                            <li><a href="stage4.html">やってみよう！</a></li>
+                        </ul>
+                    </li>
+                    <li>ステージ5
+                        <ul>
+                            <li><a href="stage5_tutorial.html">説明するよ！</a></li>
+                            <li><a href="stage5.html">やってみよう！</a></li>
+                            <li><a href="stage5_tutorial0.html">作品例</a></li>
+                        </ul>
+                    </li>
+                    <li>ステージ6
+                        <ul>
+                            <li><a href="stage6_tutorial.html">説明するよ！</a></li>
+                            <li><a href="stage6.html">やってみよう！</a></li>
+                            <li><a href="stage6_tutorial0.html">作品例</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </span>
+            <span class="title">やってみよう！</span>
+            <ul class="right-icon">
+                <li>
+                    <a id="btn-note" href="javascript:void(0)"><img src="images/ico_book.svg" alt=""></a>
+                    <div id="note" class="balloon" style="display: none">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <h4>6. 歩行者用信号って？</h4>
+                                    <p>
+                                        歩行者用信号機では、<br>
+                                        １「下の青信号がしばらく光る」（何秒かな？）<br>
+                                        ２「下の青信号が少しだけ点めつする」（何秒かな？青色信号より長いかな？）<br>
+                                        ３「上の赤信号がしばらく光る」（何秒かな？）<br>
+                                        これらを、くり返します。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="screen-arrow">
+            <a href="stage6_tutorial.html" class="arrow-left"><img src="images/btn_screen_left.svg" alt=""></a>
+            <a href="stage6_tutorial0.html" class="arrow-right hidden"><img src="images/btn_screen_right.svg" alt=""></a>
+        </div>
+
+        <div id="content" class="animated fadeIn">
+            <p class="prompt">歩行者用信号機を作ろう</p>
+            <div class="image">
+                <img class="img-playground light-on light-b" src="images/img_walk_on_b.svg" alt="">
+                <img class="img-playground light-on light-r" src="images/img_walk_on_r.svg" alt="">
+                <img class="img-playground light-on light-br" src="images/img_walk_on_br.svg" alt="">
+                <img class="img-playground light-off" src="images/img_walk_off.svg" alt="">
+            </div>
+        </div>
+        <div id="footer"></div>
+        <div id="workspace">
+            <div id="blockly-workspace"></div>
+            <div class="button-arrow">
+                <button id="button-arrow-left">
+                    <img src="images/btn_arrow_left.svg">
+                </button>
+                <button id="button-arrow-right">
+                    <img src="images/btn_arrow_right.svg">
+                </button>
+            </div>
+            <div class="button-play">
+                <img src="images/button_play.svg">
+            </div>
+        </div>
+
+        <xml id="toolbox" style="display: none;">
+            <block type="walk_on_color">
+                <value name="CHOICE">
+                    <shadow type="walk_selector">
+                        <field name="CHOICE">blue</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="walk_on_color">
+                <value name="CHOICE">
+                    <shadow type="walk_selector">
+                        <field name="CHOICE">red</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="walk_off"></block>
+            <block type="wait">
+                <field name="SECOND">2</field>
+            </block>
+            <block type="loop">
+                <field name="COUNT">4</field>
+            </block>
+        </xml>
+        <xml id="workspaceBlocks" style="display:none">
+            <variables></variables>
+        </xml>
+
+        <!-- Add your site or application content here -->
+        <script src="acorn_interpreter.js"></script>
+        <script src="google-blockly/blockly_compressed_horizontal.js"></script>
+        <script src="google-blockly/blocks_compressed_horizontal.js"></script>
+        <script src="google-blockly/javascript_compressed.js"></script>
+        <script src="google-blockly/msg/js/ja.js"></script>
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="js/swiper.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    </body>
+</html>

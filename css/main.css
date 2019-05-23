@@ -1,0 +1,1119 @@
+/*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    font-family: "Noto Sans Japanese", sans-serif;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+body#top,
+body#stage1,
+body#stage2 {
+    background-color: #D1B187;
+    background-image: url("../images/bg1.svg");
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: auto 100vh;
+}
+
+body#stage3 {
+    background-color: #3D8ACF;
+    background-image: url("../images/bg3_town.svg"), url("../images/bg3_kumo.svg"), url("../images/bg3_sora.svg");
+    background-position: center 0;
+    background-repeat: repeat-x;
+    background-size: auto 100vh;
+    animation: animatedBody 40s linear infinite;
+}
+
+body#stage4 {
+    background-color: #3D8ACF;
+    background-image: url("../images/bg4_kikyu.svg"), url("../images/bg4.svg");
+    background-position: center 0;
+    background-repeat: repeat-x;
+    background-size: auto 100vh;
+    animation: animatedKikyu 2s ease-in-out infinite alternate;
+}
+
+body#stage5 {
+    background-color: #3D8ACF;
+    background-image: url("../images/bg5.svg");
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: auto 100vh;
+}
+
+body#stage6 {
+    background-color: #3D8ACF;
+    background-image: url("../images/bg6.svg");
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: auto 100vh;
+}
+
+@keyframes animatedBody {
+    from { background-position: center 0, 0% 0, center 0; }
+    to { background-position: center 0, 100% 0, center 0; }
+}
+
+@keyframes animatedKikyu {
+    from { background-position: center 0, center 0; }
+    to { background-position: center 3%, center 0; }
+}
+
+.slide-in {
+    -webkit-animation: animatedSlideInRight 1s ease-out;
+    animation: animatedSlideInRight 1s ease-out;
+}
+
+.slide-out {
+    -webkit-animation: animatedSlideOutLeft 1s ease-in;
+    animation: animatedSlideOutLeft 1s ease-in;
+}
+
+.slide-in-prev {
+    -webkit-animation: animatedSlideInLeft 1s ease-out;
+    animation: animatedSlideInLeft 1s ease-out;
+}
+
+.slide-out-prev {
+    -webkit-animation: animatedSlideOutRight 1s ease-in;
+    animation: animatedSlideOutRight 1s ease-in;
+}
+
+@-webkit-keyframes animatedSlideInLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes animatedSlideInLeft {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes animatedSlideInRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes animatedSlideInRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes animatedSlideOutLeft {
+    from {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@keyframes animatedSlideOutLeft {
+    from {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@-webkit-keyframes animatedSlideOutRight {
+    from {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+@keyframes animatedSlideOutRight {
+    from {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+#header {
+    background: #1E80C1;
+    color: #FFFFFF;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+    top: 0;
+    position: absolute;
+    font-size: 19px;
+    box-shadow: 0px 0px 0px 4px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+#header .menu {
+    background: #0C76B3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 290px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: .1em;
+
+    /*DEV*/
+    cursor: pointer;
+}
+
+#header .title {
+    position: absolute;
+    top: 0;
+    left: 320px;
+    right: 0;
+    bottom: 0;
+    text-align: left;
+    letter-spacing: .2em;
+}
+
+.dropmenu {
+    position: relative;
+    z-index: 7;
+}
+
+.dropmenu ul {
+    position: absolute;
+    list-style-type: none;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF;
+    opacity: 0.94;
+}
+
+.dropmenu ul li {
+    position: relative;
+    line-height: 65px;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    color: #2B69A6;
+    transition: .2s;
+}
+
+.dropmenu:hover > ul > li {
+    overflow: visible;
+    height: 65px;
+    border-top: solid 1px #4D4D4D;
+}
+
+.dropmenu ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #2B69A6;
+    text-decoration: none;
+}
+
+.dropmenu ul li a:hover {
+    background: #CCCCCC;
+}
+
+.dropmenu ul li ul:before {
+    position: absolute;
+    content: "";
+    top: 28px;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-left-color: #454e08;
+}
+
+.dropmenu ul li ul {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+.dropmenu:hover ul li:hover > ul > li {
+    overflow: visible;
+    height: 65px;
+    border-top: solid 1px #4D4D4D;
+}
+
+#header .right-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    list-style: none;
+}
+
+#header .right-icon li {
+    position: relative;
+    float: right;
+    width: 72px;
+    height: 100%;
+    margin: 0;
+}
+
+#header .right-icon li a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 24%;
+    box-sizing: border-box;
+}
+
+#header .right-icon li a img {
+    width: 100%;
+    height: auto;
+}
+
+#header .right-icon .exclamation-hint {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 40px;
+    left: -40px;
+}
+
+.balloon:before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: 25px;
+    border: 10px solid transparent;
+    border-bottom: 20px solid #F9F9F5;
+}
+
+.balloon {
+    position: absolute;
+    width: 400px;
+    height: 580px;
+    top: 68px;
+    right: 0px;
+    background: #F9F9F5;
+    color: #4D4D4D;
+    z-index: 100;
+    opacity: 0.92;
+    box-sizing: border-box;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto !important;
+}
+
+.swiper-slide {
+    padding: 30px 30px 30px 40px;
+    box-sizing: border-box;
+}
+
+.balloon h4 {
+    margin: 0 0 0.8em;
+    font-size: 24px;
+    line-height: 1.1em;
+}
+
+.balloon p {
+    font-size: 16px;
+    line-height: 1.8em;
+}
+
+.balloon p:last-child {
+    padding-bottom: 2em;
+}
+
+.balloon.note-explain p {
+    margin-left: 2em;
+}
+
+#note.note-explain p img.note-explain-char {
+    height: 1.6em;
+    position: absolute;
+    margin-left: -2em;
+}
+
+#content {
+    /*background: #9d60a4;*/
+    top: 56px;
+    left: 10%;
+    right: 10%;
+    bottom: 105px;
+    position: absolute;
+}
+
+#content .prompt {
+    background: #ffffff;
+    position: absolute;
+    top: 32px;
+    left: 5%;
+    right: 5%;
+    height: 64px;
+    margin: 0;
+    border-radius: 32px;
+    text-align: center;
+    line-height: 64px;
+    font-size: 32px;
+    color: #2B69A9;
+    font-weight: bold;
+    z-index: 10;
+}
+
+#content .image {
+    /*background: #e88ae3;*/
+    position: absolute;
+    top: 100px;
+    left: 32px;
+    right: 32px;
+    bottom: 0px;
+    text-align: center;
+}
+
+#content .image img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: none;
+}
+
+
+#stage1 #content .image,
+#stage2 #content .image {
+    bottom: 150px;
+}
+
+#stage3 #content .image,
+#stage5 #content .image {
+    bottom: 135px;
+}
+
+#stage4 #content .image {
+    top: 0px;
+    bottom: 135px;
+}
+
+#stage6 #content .image {
+    top: 120px;
+    bottom: 160px;
+}
+
+#stage5 #content .image img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+#tutorial {
+    background: #0a77be;
+    position: absolute;
+    top: 34px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 1120px;
+    height: 510px;
+    max-height: 70%;
+    margin: auto;
+    padding: 40px 50px;
+    border-radius: 24px;
+    color: #ffffff;
+    text-align: left;
+    /*font-size: 20px;*/
+    /*overflow: hidden;*/
+}
+
+#top #tutorial,
+#stage1 #tutorial,
+#stage2 #tutorial,
+#stage3 #tutorial,
+#stage4 #tutorial {
+    background: #45a877;
+}
+
+#top #tutorial {
+    text-align: center;
+}
+
+#top .button-play {
+    position: absolute;
+    top: 60%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#tutorial .title {
+    position: absolute;
+    display: block;
+    top: 38px;
+    left: 100px;
+    font-size: 41px;
+    font-weight: bold;
+    letter-spacing: .1em;
+    margin-bottom: .3em;
+    z-index: 5;
+}
+
+#top #tutorial .title {
+    position: static;
+}
+
+#tutorial .title img {
+    height: 80px;
+    display: block;
+    margin: 0 auto .2em;
+}
+
+#tutorial .title2 {
+    display: block;
+    font-size: 39px;
+    font-weight: bold;
+    letter-spacing: .1em;
+    line-height: 1em;
+    margin-bottom: .4em;
+}
+
+#tutorial .exclamation {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: -20px;
+    left: -20px;
+}
+
+#tutorial p {
+    margin: 0;
+    line-height: 1.4em;
+    font-size: 21px;
+}
+
+#tutorial .description {
+    /*background: #f9ed32;*/
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    bottom: 218px;
+    width: 620px;
+    line-height: 1.8em;
+    letter-spacing: 0.08em;
+    overflow: auto;
+    /*overflow-y: scroll;*/
+    direction: rtl;
+    /*padding-left: 9px;*/
+}
+
+#stage5 #tutorial .description {
+    width: 640px;
+}
+
+#tutorial .description::-webkit-scrollbar {
+    overflow: hidden;
+    width: 6px;
+    background: #f1ffff;
+
+    -webkit-appearance: none;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#top #tutorial .description::-webkit-scrollbar,
+#stage1 #tutorial .description::-webkit-scrollbar,
+#stage2 #tutorial .description::-webkit-scrollbar,
+#stage3 #tutorial .description::-webkit-scrollbar,
+#stage4 #tutorial .description::-webkit-scrollbar {
+    background: #00843c;
+}
+
+#tutorial .description::-webkit-scrollbar:horizontal {
+    height: 5px;
+}
+
+#tutorial .description::-webkit-scrollbar-button {
+    display: none;
+}
+
+#tutorial .description::-webkit-scrollbar-piece {
+    background: #eee;
+}
+
+#tutorial .description::-webkit-scrollbar-piece:start {
+    background: #eee;
+}
+
+#tutorial .description::-webkit-scrollbar-thumb {
+    overflow: hidden;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: #7ac1cf;
+}
+
+#top #tutorial .description::-webkit-scrollbar-thumb,
+#stage1 #tutorial .description::-webkit-scrollbar-thumb,
+#stage2 #tutorial .description::-webkit-scrollbar-thumb,
+#stage3 #tutorial .description::-webkit-scrollbar-thumb,
+#stage4 #tutorial .description::-webkit-scrollbar-thumb {
+    background: #006837;
+}
+
+#tutorial .description::-webkit-scrollbar-corner {
+    overflow: hidden;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: #7ac1cf;
+}
+
+#top #tutorial .description::-webkit-scrollbar-corner,
+#stage1 #tutorial .description::-webkit-scrollbar-corner,
+#stage2 #tutorial .description::-webkit-scrollbar-corner,
+#stage3 #tutorial .description::-webkit-scrollbar-corner,
+#stage4 #tutorial .description::-webkit-scrollbar-corner {
+    background: #006837;
+}
+
+#tutorial .description p {
+    direction: ltr;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+#tutorial .description img,
+#note p img {
+    height: 2em;
+    vertical-align: middle;
+    margin: 0px 6px 0px 4px;
+}
+
+#note.note-explain p img {
+    height: 1.5em;
+    margin: 0 4px;
+}
+
+#stage5 #tutorial .description img,
+#stage6 #tutorial .description img {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+#tutorial .description-test {
+    /* background: orange; */
+    position: absolute;
+    top: 40px;
+    right: 39px;
+    bottom: 218px;
+    width: 396px;
+    z-index: 2;
+}
+
+#tutorial .description-test img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#tutorial .img-playground {
+    display: none;
+}
+
+#tutorial .button-play img {
+    height: 171px;
+}
+
+#tutorial .workspace {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    bottom: 0;
+    height: 200px;
+}
+
+#tutorial .workspace .button-play {
+    width: 100px;
+    height: 100px;
+    right: 0;
+    bottom: 100px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#tutorial .workspace .button-play img {
+    width: 100%;
+    height: 100%;
+}
+
+.img-tutorial-hint {
+    position: absolute;
+    background-color: #0a77be;
+}
+
+
+#top .img-tutorial-hint,
+#stage1 .img-tutorial-hint,
+#stage2 .img-tutorial-hint,
+#stage3 .img-tutorial-hint,
+#stage4 .img-tutorial-hint {
+    background-color: #45a877;
+}
+
+#footer {
+    background: #FFFFFF;
+    width: 100%;
+    height: 105px;
+    bottom: 0;
+    position: absolute;
+}
+
+#workspace {
+    height: 240px;
+    left: 10%;
+    right: 10%;
+    bottom: 0;
+    position: absolute;
+}
+
+#workspace .button-play {
+    /*background: #e88ae3;*/
+    width: 105px;
+    height: 105px;
+    right: 0;
+    bottom: 135px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#workspace .button-play img {
+    width: 100%;
+    height: 100%;
+}
+
+#button-arrow-left,
+#button-arrow-right {
+    position: absolute;
+    top: 0;
+    bottom: 135px;
+    width: 42px;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+#tutorial #button-arrow-left,
+#tutorial #button-arrow-right {
+    width: 40px;
+}
+
+#button-arrow-left {
+    left: 0;
+}
+
+#button-arrow-right {
+    right: 125px;
+}
+
+#tutorial #button-arrow-right {
+    right: 118px;
+}
+
+#tutorial #button-arrow-left,
+#tutorial #button-arrow-right {
+    bottom: 100px;
+}
+
+#blockly-workspace {
+    /*background: #f9ed32;*/
+    top: 0;
+    left: 42px;
+    right: 147px;
+    bottom: 0;
+    margin-right: 20px;
+    position: absolute;
+}
+
+#tutorial #blockly-workspace {
+    left: 40px;
+    right: 138px;
+}
+
+#screen-arrow {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    bottom: 105px;
+    padding: 20px;
+}
+
+#screen-arrow a {
+    position: absolute;
+    display: block;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    transform: translate(0,-50%);
+    z-index: 100;
+}
+
+#screen-arrow img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#screen-arrow .arrow-left {
+    left: 20px;
+}
+
+#screen-arrow .arrow-right {
+    right: 20px;
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; /* 1 */
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    -webkit-clip-path: none;
+    clip-path: none;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+    white-space: inherit;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
