@@ -1,0 +1,48 @@
+pages:
+  stage: deploy
+  script:
+  - mkdir .public
+  - cp -r * .public
+  - mv .public public
+  artifacts:
+    paths:
+    - public
+  only:
+  - develop
+
+staging:
+  stage: deploy
+  before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - which rsync || ( apt-get update -y && apt-get install rsync -y )
+  script:
+  - rsync -auz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --delete --exclude=".git" --exclude=".gitlab-ci.yml" --exclude="README.md" ./* gitlab@157.7.211.202:/var/www/yokoshiki-blocks/
+  only:
+  - master
+
+production:
+  stage: deploy
+  before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY2" | tr -d '\r' | ssh-add - > /dev/null
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - which git || ( apt-get update -y && apt-get install git -y )
+  script:
+  - rm -rf .git
+  - git init
+  - git config --global user.email $GITHUB_USER_EMAIL
+  - git config --global user.name "$GITHUB_USER_NAME"
+  - git remote add origin $GITHUB_REPOSITORY_URL
+  - git fetch
+  - git reset origin/master
+  - git add .
+  - git commit -m "commit for deployment"
+  - git push origin master
+  only:
+  - master-yokoshiki

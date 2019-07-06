@@ -1,1 +1,1 @@
-yokoshiki.github.io
+yokoshiki-blocks
