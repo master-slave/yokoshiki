@@ -331,6 +331,7 @@ body#stage6 {
 
 .dropmenu {
     position: relative;
+    cursor: pointer;
     z-index: 7;
 }
 
@@ -356,7 +357,7 @@ body#stage6 {
     transition: .2s;
 }
 
-.dropmenu:hover > ul > li {
+.dropmenu.hover > ul > li {
     overflow: visible;
     height: 65px;
     border-top: solid 1px #4D4D4D;
