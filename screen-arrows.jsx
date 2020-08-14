@@ -15,7 +15,14 @@ class ScreenArrows extends React.Component {
       count: this.state.count + 1,
       id: 'stage2'
     });
-
+    if ($('#tutorial').length > 0) {
+      $('#tutorial').removeClass('slide-in-prev');
+      $('#tutorial').addClass('slide-out');
+      setTimeout(function () {
+        $('#tutorial').addClass('visuallyhidden');
+      }, 1000);
+    }
+    return false;
   }
 
   backward(e) {
@@ -24,12 +31,22 @@ class ScreenArrows extends React.Component {
       id: 'stage3'
     });
     console.log("backward");
+
+    if ($('#tutorial').length > 0) {
+      $('#tutorial').removeClass('slide-in');
+      $('#tutorial').addClass('slide-out-prev');
+      setTimeout(function () {
+        $('#tutorial').addClass('visuallyhidden');
+
+      }, 1000);
+    }
+    return false;
   }
 
   render() {
 
     return (
-        <>
+        <div id="screen-arrow">
           <a href="#" className="arrow-left" onClick={this.backward}>
             <img src="images/btn_screen_left.svg" alt=""/>
           </a>
@@ -37,7 +54,7 @@ class ScreenArrows extends React.Component {
              onClick={this.forward}>
             <img src="images/btn_screen_right.svg" alt=""/>
           </a>
-        </>
+        </div>
     );
   }
 
@@ -46,6 +63,3 @@ class ScreenArrows extends React.Component {
     document.body.id = id;
   }
 }
-
-ReactDOM.render(
-    <ScreenArrows/>, document.getElementById('screen-arrow'));

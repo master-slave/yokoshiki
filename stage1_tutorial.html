@@ -23,101 +23,23 @@
   <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
 </head>
 <body id="stage1">
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
+    href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and
+  security.</p>
+<![endif]-->
 <div id="root">
-  <!--[if lte IE 9]>
-  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
-      href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and
-    security.</p>
-  <![endif]-->
-  <div id="header">
-            <span id="dropmenu" class="menu dropmenu">
-            </span>
-    <span class="title">説明するよ！</span>
-    <ul class="right-icon">
-      <li>
-        <a id="btn-note" href="javascript:void(0)"><img src="images/ico_book.svg" alt=""></a>
-        <img class="exclamation-hint animated infinite slow tada" src="images/ico_hint.svg">
-        <div id="note" class="balloon note-explain" style="display: none">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <h4>0.使い方</h4>
-                <img src="images/note/img_note_explain.svg" alt="">
-                <p>
-                  <img src="images/note/ico_note_char_a.svg" class="note-explain-char" alt="A">
-                  指示ブロックを並べてプログラムを作るところ。
-                  このわくに入りきらないときは、両側の矢印をおして下さい。
-                </p>
-                <p>
-                  <img src="images/note/ico_note_char_b.svg" class="note-explain-char" alt="B">
-                  指示ブロック
-                </p>
-                <p>
-                  <img src="images/note/ico_note_char_c.svg" class="note-explain-char" alt="C">
-                  プログラムを実行させるボタン。<br>
-                  <img src="images/note/ico_note_play.svg" alt="再生">をおすと、<img
-                    src="images/note/ico_note_stop.svg" alt="停止">に変わります。<br>
-                  <img src="images/note/ico_note_stop.svg" alt="停止">をおすと、プログラムが一時停止します。<br>
-                  <img src="images/note/ico_note_play.svg" alt="再生">や<img
-                    src="images/note/ico_note_stop.svg" alt="停止">を長おしすると、<img
-                    src="images/note/ico_note_space.svg" alt="">にある指示ブロックが全て消えます
-                </p>
-                <p>
-                  <img src="images/note/ico_note_char_d.svg" class="note-explain-char" alt="D">
-                  課題を達成すると、右側に<img src="images/note/ico_note_screen_right.svg" alt="次へ">が出てきます。<br>
-                  <img src="images/note/ico_note_screen_right.svg" alt="次へ">をおすと、次の画面に移ります。<br>
-                  <img src="images/note/ico_note_screen_left.svg" alt="もどる">をおすと、前の画面にもどります。
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div id="screen-arrow">
-  </div>
 
 
-  <!--<div id="content">-->
-  <!--<p class="prompt">LEDを光らせよう！</p>-->
-  <!--</div>-->
-  <div id="tutorial" class="visuallyhidden">
-    <span class="title">LEDを光らせよう！</span>
-    <div class="description">
-      <p>
-        <img src="images/examples/icon_on.svg">は、画面上のLEDを光らせる指示です。<br>
-        <img src="images/examples/icon_space.svg">に<img src="images/examples/icon_on.svg">を置き、プログラムを作りましょう。<br>
-        <img src="images/examples/icon_play.svg">をおすと、コンピュータがプログラムに従って、<br>
-        LEDを光らせます。
-      </p>
-    </div>
-    <span class="description-test">
-                <img class="img-playground light-off" src="images/img_tutorial_light_off.svg">
-                <img class="img-playground light-on" src="images/img_tutorial_light_on.svg">
-            </span>
-
-    <div class="workspace">
-      <div id="blockly-workspace"></div>
-      <div class="button-arrow">
-        <button id="button-arrow-left">
-          <img src="images/btn_arrow_left.svg">
-        </button>
-        <button id="button-arrow-right">
-          <img src="images/btn_arrow_right.svg">
-        </button>
-      </div>
-      <div class="button-play">
-        <img src="images/button_play.svg">
-      </div>
-    </div>
-  </div>
 
 </div>
 
 <script type="text/babel" src="dropmenu.jsx"></script>
+<script type="text/babel" src="header.jsx"></script>
 <script type="text/babel" src="screen-arrows.jsx"></script>
+<script type="text/babel" src="workspace.jsx"></script>
+<script type="text/babel" src="tutorial.jsx"></script>
+<script type="text/babel" src="main.jsx"></script>
 
 <xml id="toolbox" style="display: none;">
   <block type="turn_on"></block>
@@ -147,7 +69,7 @@
 <script src="js/swiper.min.js"></script>
 <script src="js/plugins.js"></script>
 <script>disabledField = true;</script>
-<script src="js/main.js"></script>
+<script src="js/static-main.js"></script>
 
 
 </body>

@@ -2,7 +2,7 @@ class Dropmenu extends React.Component {
 
   render() {
     return (
-        <>
+        <span id="dropmenu" className="menu dropmenu">
           ステージ1
           <ul>
             <li><a href="index.html">スタート！</a></li>
@@ -50,11 +50,9 @@ class Dropmenu extends React.Component {
               </ul>
             </li>
           </ul>
-        </>
+        </span>
     );
   }
 
 }
 
-ReactDOM.render(
-    <Dropmenu/>, document.getElementById('dropmenu'));
