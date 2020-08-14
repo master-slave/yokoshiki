@@ -38,14 +38,21 @@ class Tutorial extends React.Component {
         <div id="tutorial" className="visuallyhidden">
           <Title/>
           <Description/>
-          <Workspace blocks={<xml id="workspaceBlocks" style="display: none">
-          </xml>
-          } toolbox={<xml id="toolbox" style="display: none;">
-            <block type="turn_on"></block>
-          </xml>
-          }/>
+          <Workspace
+              workspaceblocksXml={'<xml id="workspaceBlocks" style="display: none"></xml>'}
+              initialXml={`<xml xmlns="http://www.w3.org/1999/xhtml"><block type="controls_ifelse" x="0" y="0"></block></xml>`}
+              toolboxXml={`<xml id="toolbox" style="display: none;"><block type="turn_on"></block></xml>`}/>
         </div>
     );
+  }
+
+  componentDidMount() {
+    $('#tutorial').removeClass('visuallyhidden');
+    if (location.hash == '#prev') {
+      $('#tutorial').addClass('slide-in-prev');
+    } else {
+      $('#tutorial').addClass('slide-in');
+    }
   }
 
 }

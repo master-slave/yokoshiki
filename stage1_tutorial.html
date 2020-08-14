@@ -41,16 +41,7 @@
 <script type="text/babel" src="tutorial.jsx"></script>
 <script type="text/babel" src="main.jsx"></script>
 
-<xml id="toolbox" style="display: none;">
-  <block type="turn_on"></block>
-  <!--<block type="turn_off"></block>-->
-  <!--<block type="wait">-->
-  <!--<field name="SECOND">1</field>-->
-  <!--</block>-->
-  <!--<block type="loop">-->
-  <!--<field name="COUNT">4</field>-->
-  <!--</block>-->
-</xml>
+
 <xml id="workspaceBlocks" style="display: none">
 </xml>
 
@@ -67,10 +58,31 @@
 <script>window.jQuery || document.write(
     '<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
 <script src="js/swiper.min.js"></script>
+<script>
+  var swiper;
+  if ('undefined' !== typeof Swiper) {
+    swiper = new Swiper('.swiper-container', {
+      init: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  }
+</script>
 <script src="js/plugins.js"></script>
 <script>disabledField = true;</script>
-<script src="js/static-main.js"></script>
-
+<script src="js/custom-blocks.js"></script>
+<script src="js/workspace.js"></script>
+<script>
+  if (!navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
+    $('.dropmenu').on('mouseenter', function () {
+      $(this).addClass('hover');
+    }).on('mouseleave', function () {
+      $(this).removeClass('hover');
+    });
+  }
+</script>
 
 </body>
 </html>

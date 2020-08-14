@@ -1,6 +1,11 @@
 class Workspace extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+
     return (
         <div id="workspace" className="workspace">
           <div id="blockly-workspace"></div>
@@ -20,10 +25,11 @@ class Workspace extends React.Component {
   }
 
   componentDidMount() {
-    var toolbox = document.getElementById("toolbox");
+    const {initialXml, toolboxXml, workspaceblocksXml, children, ...rest} = this.props;
 
     var options = {
-      toolbox: toolbox,
+      initialXml: initialXml,
+      toolbox: toolboxXml,
       collapse: false,
       comments: false,
       disable: false,
@@ -40,15 +46,76 @@ class Workspace extends React.Component {
     };
 
     /* Inject your workspace */
-     workspace = Blockly.inject('blockly-workspace', options);
+    workspace = Blockly.inject('blockly-workspace', options);
 
     /* Load Workspace Blocks from XML to workspace. Remove all code below if no blocks to load */
-
     var workspaceBlocks = document.getElementById("workspaceBlocks");
 
     /* Load blocks to workspace. */
     Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
 
+    $(function () {
+      var touched = false;
+      var touch_time = 0;
+      var timer = null;
+      var pointerDown = function (e) {
+            touched = true;
+            touch_time = 0;
+            timer = setInterval(function () {
+              touch_time += 100;
+              if (touch_time == 1000) {
+                workspace.clear();
+                resetInterpreter();
+                turnOffFunction();
+              }
+            }, 100);
+            e.stopPropagation();
+            e.preventDefault();
+          },
+          pointerUp = function (e) {
+            if (touched) {
+              if (touch_time < 1000) {
+                if ($('.button-play > img').attr('src')
+                    == 'images/button_play.svg') {
+                  $('.button-play > img').attr('src', 'images/button_stop.svg');
+                  $('.button-play > img').attr('data-status', 'runtime');
+                  playFunction();
+                } else {
+                  $('.button-play > img').attr('src', 'images/button_play.svg');
+                  $('.button-play > img').attr('data-status', '');
+                }
+              }
+            }
+            touched = false;
+            clearInterval(timer);
+            $('.img-tutorial-hint').addClass('hidden');
+            clearTimeout(tutorialHintTimer);
+            e.stopPropagation();
+            e.preventDefault();
+          };
+      var _ua = (function () {
+        return {
+          Touch: typeof document.ontouchstart !== "undefined",
+          Pointer: window.navigator.pointerEnabled,
+          MSPoniter: window.navigator.msPointerEnabled
+        }
+      })();
+      var _start = _ua.Pointer ? 'pointerdown' : _ua.MSPointer ? 'MSPointerDown'
+          : _ua.Touch ? 'touchstart' : 'mousedown';
+      var _move = _ua.Pointer ? 'pointermove' : _ua.MSPointer ? 'MSPointerMove'
+          : _ua.Touch ? 'touchmove' : 'mousemove';
+      var _end = _ua.Pointer ? 'pointerup' : _ua.MSPointer ? 'MSPointerUp'
+          : _ua.Touch ? 'touchend' : 'mouseup';
+
+      $(".button-play").bind(_start, pointerDown);
+      $(".button-play").bind(_end, pointerUp);
+
+      arrowScroll();
+
+      console.log('END');
+    });
+
+    turnOffFunction();
   }
 
 }
