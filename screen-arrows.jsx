@@ -28,22 +28,24 @@ class ScreenArrows extends React.Component {
   backward(e) {
     this.setState({
       count: this.state.count - 1,
-      id: 'stage3'
+      id: 'stage1'
     });
     console.log("backward");
 
-    if ($('#tutorial').length > 0) {
+    /*if ($('#tutorial').length > 0) {
       $('#tutorial').removeClass('slide-in');
       $('#tutorial').addClass('slide-out-prev');
       setTimeout(function () {
         $('#tutorial').addClass('visuallyhidden');
 
       }, 1000);
-    }
+    }*/
+    this.props.updateText(e.target.value);
     return false;
   }
 
   render() {
+    console.log("render screen arrows");
 
     return (
         <div id="screen-arrow">
@@ -59,7 +61,5 @@ class ScreenArrows extends React.Component {
   }
 
   componentDidMount() {
-    var id = this.state.id;
-    document.body.id = id;
   }
 }

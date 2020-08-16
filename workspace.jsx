@@ -1,58 +1,22 @@
+function updateToolbox(toolbox){
+  console.log('updating toolbox');
+  this.setState({toolbox})
+}
+
 class Workspace extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      toolbox: '<xml id="toolbox" style="display: none;"><block type="turn_on"></block></xml>'
+    }
+    updateToolbox = updateToolbox.bind(this);
   }
 
   render() {
+    console.log("render workspace");
+    console.log("resetting");
 
-    return (
-        <div id="workspace" className="workspace">
-          <div id="blockly-workspace"></div>
-          <div className="button-arrow">
-            <button id="button-arrow-left">
-              <img src="images/btn_arrow_left.svg"/>
-            </button>
-            <button id="button-arrow-right">
-              <img src="images/btn_arrow_right.svg"/>
-            </button>
-          </div>
-          <div className="button-play">
-            <img src="images/button_play.svg"/>
-          </div>
-        </div>
-    );
-  }
-
-  componentDidMount() {
-    const {initialXml, toolboxXml, workspaceblocksXml, children, ...rest} = this.props;
-
-    var options = {
-      initialXml: initialXml,
-      toolbox: toolboxXml,
-      collapse: false,
-      comments: false,
-      disable: false,
-      maxBlocks: 20,
-      trashcan: false,
-      horizontalLayout: true,
-      toolboxPosition: 'end',
-      css: true,
-      media: 'google-blockly/media/',
-      rtl: false,
-      scrollbars: true,
-      sounds: true,
-      oneBasedIndex: true
-    };
-
-    /* Inject your workspace */
-    workspace = Blockly.inject('blockly-workspace', options);
-
-    /* Load Workspace Blocks from XML to workspace. Remove all code below if no blocks to load */
-    var workspaceBlocks = document.getElementById("workspaceBlocks");
-
-    /* Load blocks to workspace. */
-    Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
 
     $(function () {
       var touched = false;
@@ -65,6 +29,7 @@ class Workspace extends React.Component {
               touch_time += 100;
               if (touch_time == 1000) {
                 workspace.clear();
+                console.log("clearing workspace");
                 resetInterpreter();
                 turnOffFunction();
               }
@@ -116,6 +81,67 @@ class Workspace extends React.Component {
     });
 
     turnOffFunction();
+
+    return (
+        <div id="workspace" className="workspace">
+          <div id="blockly-workspace"></div>
+          <div className="button-arrow">
+            <button id="button-arrow-left">
+              <img src="images/btn_arrow_left.svg"/>
+            </button>
+            <button id="button-arrow-right">
+              <img src="images/btn_arrow_right.svg"/>
+            </button>
+          </div>
+          <div className="button-play">
+            <img src="images/button_play.svg"/>
+          </div>
+        </div>
+    );
+  }
+
+  componentDidMount() {
+    this.setupBlockly();
+  }
+
+  setupBlockly() {
+    console.log("setting up blockly");
+    resetInterpreter();
+    turnOffFunction();
+    if (workspace !== undefined) {
+      workspace.dispose();
+    }
+
+    var options = {
+      toolbox: this.state.toolbox,
+      collapse: false,
+      comments: false,
+      disable: false,
+      maxBlocks: 20,
+      trashcan: false,
+      horizontalLayout: true,
+      toolboxPosition: 'end',
+      css: true,
+      media: 'google-blockly/media/',
+      rtl: false,
+      scrollbars: true,
+      sounds: true,
+      oneBasedIndex: true
+    };
+
+    /* Inject your workspace */
+    workspace = Blockly.inject('blockly-workspace', options);
+
+    /* Load Workspace Blocks from XML to workspace. Remove all code below if no blocks to load */
+    var workspaceBlocks = document.getElementById("workspaceBlocks");
+
+    /* Load blocks to workspace. */
+    Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
+  }
+
+  componentDidUpdate() {
+    console.log("workspace updated " + this.state.toolbox);
+    this.setupBlockly();
   }
 
 }

@@ -259,7 +259,6 @@ if ('undefined' !== typeof Blockly) {
         $('.img-tutorial-hint').addClass('animated fadeOut');
     }, 10000);
 
-
 }
 
 

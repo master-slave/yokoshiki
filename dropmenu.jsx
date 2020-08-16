@@ -1,3 +1,8 @@
+function updateText(text) {
+  this.setState({text})
+}
+
+
 class Dropmenu extends React.Component {
 
   render() {
