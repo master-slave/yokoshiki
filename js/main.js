@@ -4,12 +4,13 @@ var code;
 var swiper;
 
 var signalState = {};
+const dd = ms => new Promise(res => setTimeout(res, ms));
 
 if ('undefined' !== typeof Blockly) {
     Blockly.Blocks['turn_on'] = {
         init: function () {
             this.appendDummyInput()
-                .appendField(new Blockly.FieldImage("images/ico_turn_on.svg", 40, 40, "*"));
+                .appendField(new Blockly.FieldImage("images/ico_espresso.svg", 40, 40, "*"));
             this.setPreviousStatement(true, null);
             this.setNextStatement(true, null);
             this.setColour("#66C7FF");
@@ -20,7 +21,7 @@ if ('undefined' !== typeof Blockly) {
     Blockly.Blocks['turn_off'] = {
         init: function () {
             this.appendDummyInput()
-                .appendField(new Blockly.FieldImage("images/ico_turn_off.svg", 40, 40, "*"));
+                .appendField(new Blockly.FieldImage("images/ico_americano.svg", 40, 40, "*"));
             this.setPreviousStatement(true, null);
             this.setNextStatement(true, null);
             this.setColour("#66C7FF");
@@ -40,7 +41,7 @@ if ('undefined' !== typeof Blockly) {
             this.setHelpUrl("");
 
             if ('undefined' !== typeof disabledField && disabledField) {
-                this.setEditable(false);
+                this.setEditable(true);
             }
         }
     };
@@ -58,7 +59,7 @@ if ('undefined' !== typeof Blockly) {
             this.setHelpUrl("");
 
             if ('undefined' !== typeof disabledField && disabledField) {
-                this.setEditable(false);
+                this.setEditable(true);
             }
         }
     };
@@ -456,9 +457,10 @@ if ('undefined' !== typeof Blockly) {
             if (myInterpreter) {
                 var hasMore = myInterpreter.run();
                 if (hasMore) {
+                    console.log("async call");
                     // Execution is currently blocked by some async call.
                     // Try again later.
-                    if ($('.button-play > img').attr('data-status') == 'runtime') setTimeout(runner, 10);
+                    if ($('.button-play > img').attr('data-status') == 'runtime') setTimeout(runner, 2000);
                 } else {
                     // Program is complete.
                     // outputArea.value += '\n\n<< Program complete >>';
@@ -471,7 +473,10 @@ if ('undefined' !== typeof Blockly) {
         console.log(code);
     };
 
-    var turnOnFunction = function (param) {
+    var turnOnFunction = async function (param) {
+        await new Promise(r => setTimeout(r, 2000));
+        clickAmericano();
+
         if (param == null) {
             $('.img-playground.light-on').css('display', 'inline');
         } else {
@@ -481,7 +486,9 @@ if ('undefined' !== typeof Blockly) {
         $('.img-playground.light-off').css('display', 'none');
     };
 
-    var turnOffFunction = function () {
+    var turnOffFunction = async function () {
+        await new Promise(r => setTimeout(r, 2000));
+        clickEspresso();
         $('.img-playground.light-off').css('display', 'inline');
         $('.img-playground.light-on').css('display', 'none');
     };
